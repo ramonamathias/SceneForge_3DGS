@@ -2,45 +2,263 @@ import Navbar from "../components/Navbar";
 import ProjectCard from "../components/ProjectCard";
 import NewProjectCard from "../components/NewProjectCard";
 
+const Icon = ({ children, className = "" }) => (
+  <svg
+    className={className}
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {children}
+  </svg>
+);
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="scene-page">
       <Navbar />
 
-      <main className="max-w-6xl mx-auto px-6 py-10">
-        <div className="mb-10">
-          <h1 className="text-4xl font-bold">Projects</h1>
+      {/* HERO */}
+      <section className="hero-section">
+        <div className="hero-background-glow" />
 
-          <p className="text-slate-600 mt-2">
-            Create and manage your Gaussian Splatting reconstructions.
-          </p>
+        <div className="page-container hero-layout">
+
+          {/* LEFT */}
+          <div className="hero-copy">
+
+            <div className="ai-badge">
+              <span className="badge-dot" />
+              AI POWERED
+            </div>
+
+            <h1>
+              3D Scene
+              <br />
+              Reconstruction
+              <span>from a Smartphone Video</span>
+            </h1>
+
+            <p className="hero-text">
+              Convert your smartphone videos into realistic 3D scenes
+              using Gaussian Splatting and advanced 3D vision techniques.
+            </p>
+
+            <div className="hero-features">
+
+              <div className="hero-feature">
+                <div className="feature-icon">
+                  <Icon>
+                    <rect x="7" y="2" width="10" height="20" rx="2" />
+                    <path d="M11 18h2" />
+                  </Icon>
+                </div>
+                <span>
+                  Just a
+                  <br />
+                  smartphone video
+                </span>
+              </div>
+
+              <div className="hero-feature">
+                <div className="feature-icon">
+                  <Icon>
+                    <path d="M5 19l5-5" />
+                    <path d="M9 5l10 10" />
+                    <path d="M15 4l5 1-1 5" />
+                    <path d="M5 14l-1 5 5-1" />
+                  </Icon>
+                </div>
+                <span>
+                  Fast &
+                  <br />
+                  Accurate
+                </span>
+              </div>
+
+              <div className="hero-feature">
+                <div className="feature-icon">
+                  <Icon>
+                    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+                    <path d="M4 7.5l8 4.5 8-4.5" />
+                    <path d="M12 12v9" />
+                  </Icon>
+                </div>
+                <span>
+                  High-quality
+                  <br />
+                  3D reconstruction
+                </span>
+              </div>
+
+              <div className="hero-feature">
+                <div className="feature-icon">
+                  <Icon>
+                    <circle cx="12" cy="12" r="8" />
+                    <circle cx="12" cy="12" r="2" />
+                    <path d="M12 4v2" />
+                    <path d="M12 18v2" />
+                    <path d="M4 12h2" />
+                    <path d="M18 12h2" />
+                  </Icon>
+                </div>
+                <span>
+                  View in
+                  <br />
+                  interactive 3D
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+
+          {/* IMAGE PLACEHOLDER */}
+          <div className="hero-image-frame">
+
+            <div className="image-placeholder">
+              <div className="placeholder-content">
+                <div className="placeholder-icon">
+                  <Icon>
+                    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+                    <path d="M4 7.5l8 4.5 8-4.5" />
+                    <path d="M12 12v9" />
+                  </Icon>
+                </div>
+
+                <span>3D Reconstruction Preview</span>
+
+                <small>
+                  Your reconstruction image will appear here
+                </small>
+              </div>
+            </div>
+
+            <div className="preview-label">
+              <span className="preview-status" />
+              Gaussian Splatting
+            </div>
+
+          </div>
+
         </div>
+      </section>
 
+
+      {/* NEW RECONSTRUCTION */}
+      <section className="page-container">
         <NewProjectCard />
+      </section>
 
-        <div className="mt-12">
-          <h2 className="text-2xl font-semibold mb-6">
-            Recent Projects
-          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ProjectCard
-              title="Bonsai"
-              status="Completed"
-            />
+      {/* STATS */}
+      <section className="page-container stats-section">
 
-            <ProjectCard
-              title="Flower Pot"
-              status="Processing"
-            />
+        <div className="stat-card">
+          <div className="stat-icon purple">
+            <Icon>
+              <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+              <path d="M4 7.5l8 4.5 8-4.5" />
+              <path d="M12 12v9" />
+            </Icon>
+          </div>
 
-            <ProjectCard
-              title="Living Room"
-              status="Completed"
-            />
+          <div>
+            <span>Total Projects</span>
+            <strong>3</strong>
           </div>
         </div>
-      </main>
+
+
+        <div className="stat-card">
+          <div className="stat-icon green">
+            <Icon>
+              <path d="M20 6L9 17l-5-5" />
+            </Icon>
+          </div>
+
+          <div>
+            <span>Completed</span>
+            <strong>2</strong>
+          </div>
+        </div>
+
+
+        <div className="stat-card">
+          <div className="stat-icon amber">
+            <Icon>
+              <circle cx="12" cy="12" r="8" />
+              <path d="M12 8v4l3 2" />
+            </Icon>
+          </div>
+
+          <div>
+            <span>Processing</span>
+            <strong className="amber-text">1</strong>
+          </div>
+        </div>
+
+      </section>
+
+
+      {/* RECENT PROJECTS */}
+      <section className="page-container recent-section">
+
+        <div className="recent-header">
+
+          <div>
+            <div className="recent-title">
+              <div className="recent-title-icon">
+                <Icon>
+                  <circle cx="12" cy="12" r="8" />
+                  <path d="M12 8v4l3 2" />
+                </Icon>
+              </div>
+
+              <div>
+                <h2>Recent Projects</h2>
+                <p>Your latest 3D reconstructions</p>
+              </div>
+            </div>
+          </div>
+
+          <button className="view-all">
+            View all
+            <span>→</span>
+          </button>
+
+        </div>
+
+
+        <div className="projects-grid">
+
+          <ProjectCard
+            title="Bonsai"
+            status="Completed"
+            type="Gaussian Splatting reconstruction"
+          />
+
+          <ProjectCard
+            title="Living Room"
+            status="Processing"
+            type="Gaussian Splatting reconstruction"
+          />
+
+          <ProjectCard
+            title="Flower Pot"
+            status="Completed"
+            type="Gaussian Splatting reconstruction"
+          />
+
+        </div>
+
+      </section>
+
     </div>
   );
 }
